@@ -20,6 +20,7 @@ test('localhost locator', async ({ page }) => {
   await page
     .getByPlaceholder("name@example.com")
     .fill("playwright@microsoft.com");
+  await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
   /*
   const locator = page
     .frameLocator('#my-frame')
