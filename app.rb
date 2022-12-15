@@ -9,7 +9,7 @@ require 'sinatra/activerecord'
 require 'eth'
 require 'logger'
 
-set :logger, Logger.new('ddns_ruby.log')
+set :logger, Logger.new('app.log')
 disable :show_exceptions
 
 configure do
