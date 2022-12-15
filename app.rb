@@ -20,3 +20,8 @@ get '/' do
   # This renders views/index.erb.
   erb :index
 end
+
+get '/get_by_label' do
+  # This renders views/get_by_label.erb.
+  erb :get_by_label
+end
