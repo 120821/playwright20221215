@@ -19,6 +19,16 @@ test('localhost locator', async ({ page }) => {
   await page.getByText('Details').click();
   await page.locator('x-details', { hasText: 'Details' }).click();
   await expect(page.locator('x-details')).toContainText('Details');
+  await page
+    .getByRole('listitem')
+    .filter({ hasText: 'Product 2' })
+    .getByRole('button', { name: 'Add to cart' })
+    .click();
+  await page
+    .getByRole('listitem')
+    .filter({ hasText: /Product 2/ })
+    .getByRole('button', { name: 'Add to cart' })
+    .click();
   /*
   await page.locator('css=button').click();
   await page.locator('xpath=//button').click();
