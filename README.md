@@ -51,3 +51,15 @@ npx playwright test label
 ```
 wget https://playwright.dev/img/logos/Browsers.png
 ```
+
+命令行进行测试并记录
+
+```
+npx playwright codegen demo.playwright.dev/todomvc
+```
+
+查看报告
+
+```
+npx playwright show-report
+```
