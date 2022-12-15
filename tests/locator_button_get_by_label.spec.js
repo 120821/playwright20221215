@@ -26,6 +26,8 @@ test('localhost locator', async ({ page }) => {
   // 与正则表达式匹配：
   await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
   await page.getByAltText('playwright logo').click();
+  await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
+  await page.getByTestId('directions').click();
   /*
   const locator = page
     .frameLocator('#my-frame')

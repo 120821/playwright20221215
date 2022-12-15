@@ -42,6 +42,11 @@ npx playwright test --debug
 npx playwright test locator
 ```
 
+测试包含label的文件
+```
+npx playwright test label
+```
+
 获取图片
 ```
 wget https://playwright.dev/img/logos/Browsers.png
