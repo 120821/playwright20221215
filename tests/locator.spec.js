@@ -15,6 +15,7 @@ test('localhost locator', async ({ page }) => {
   await locator.hover();
   await locator.click();
 
+  await page.getByTestId('directions').click();
   //  所有创建定位器的方法，如 page.getByLabel(text[, options])，
   //  也可用于 Locator 和 FrameLocator 类，因此您可以链接它们并迭代缩小定位器的范围。
   //  TODO

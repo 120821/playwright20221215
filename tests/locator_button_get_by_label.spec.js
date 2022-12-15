@@ -27,7 +27,20 @@ test('localhost locator', async ({ page }) => {
   await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
   await page.getByAltText('playwright logo').click();
   await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
-  await page.getByTestId('directions').click();
+  // 不修改config的时候，使用
+  // // playwright.config.js
+  // @ts-check
+
+  /** @type {import('@playwright/test').PlaywrightTestConfig} */
+  /*
+  const config = {
+    use: {
+      testIdAttribute: 'data-pw'
+    },
+  };
+  module.exports = config;
+  */
+  //  await page.getByTestId('directions').click();
   /*
   const locator = page
     .frameLocator('#my-frame')
