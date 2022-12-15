@@ -25,3 +25,8 @@ get '/get_by_label' do
   # This renders views/get_by_label.erb.
   erb :get_by_label
 end
+
+get '/get_by_role' do
+  # This renders views/get_by_role.erb.
+  erb :get_by_label
+end
