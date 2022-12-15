@@ -8,5 +8,10 @@ test('localhost locator', async ({ page }) => {
     .filter({ hasText: 'Mary' })
     .filter({ has: page.getByRole('button', { name: 'Say goodbye' }) })
     .screenshot({ path: 'screenshot.png' });
+  const rows = page.getByRole('listitem');
+  const texts = await rows.allTextContents();
+  const count = await rows.count();
+  for (let i = 0; i < count; ++i)
+    console.log(await rows.nth(i).textContent());
 
 });
