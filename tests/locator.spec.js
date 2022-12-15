@@ -29,6 +29,11 @@ test('localhost locator', async ({ page }) => {
     .filter({ hasText: /Product 2/ })
     .getByRole('button', { name: 'Add to cart' })
     .click();
+  const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
+
+  await product.getByRole('button', { name: 'Add to cart' }).click();
+
+  await expect(product).toHaveCount(1);
   /*
   await page.locator('css=button').click();
   await page.locator('xpath=//button').click();
