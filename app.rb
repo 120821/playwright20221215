@@ -35,3 +35,8 @@ get '/get_by_list' do
   # this renders views/get_by_list.erb.
   erb :get_by_list
 end
+
+get '/get_by_id' do
+  # this renders views/get_by_id.erb.
+  erb :get_by_id
+end
