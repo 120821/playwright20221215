@@ -21,6 +21,11 @@ get '/' do
   erb :index
 end
 
+get '/selector' do
+  # This renders views/selector.erb.
+  erb :selector
+end
+
 get '/get_by_label' do
   # This renders views/get_by_label.erb.
   erb :get_by_label
