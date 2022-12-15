@@ -24,7 +24,14 @@ vim playwright.config.js
 
 ### 测试
 
+测试所有的test
+
 ```
 npx playwright test --debug
 
+```
+
+测试包含locator的文件
+```
+npx playwright test locator
 ```

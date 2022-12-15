@@ -5,7 +5,7 @@ test('localhost locator', async ({ page }) => {
   await page.goto('http://localhost:4567/');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/localhost/);
+//  await expect(page).toHaveTitle(/localhost/);
   await page.getByRole('button', { name: 'Sign in' }).click();
 
   // create a locator
