@@ -16,6 +16,7 @@ test('localhost locator', async ({ page }) => {
 
   // Matches second <div>
   page.getByText(/^hello$/i)
+  await page.getByLabel('Password').fill('secret');
   /*
   const locator = page
     .frameLocator('#my-frame')
