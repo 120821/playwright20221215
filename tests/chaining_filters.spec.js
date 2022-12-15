@@ -13,5 +13,7 @@ test('localhost locator', async ({ page }) => {
   const count = await rows.count();
   for (let i = 0; i < count; ++i)
     console.log(await rows.nth(i).textContent());
+  const texts_all = await rows.evaluateAll(
+    list => list.map(element => element.textContent));
 
 });
