@@ -24,6 +24,12 @@ vim playwright.config.js
 
 ### 测试
 
+运行sinatra 的视图页面
+
+```
+ruby app.rb
+```
+
 测试所有的test
 
 ```
