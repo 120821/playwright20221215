@@ -40,3 +40,8 @@ get '/get_by_id' do
   # this renders views/get_by_id.erb.
   erb :get_by_id
 end
+
+get '/chaining_filters' do
+  # this renders views/chaining_filters.erb.
+  erb :chaining_filters
+end
