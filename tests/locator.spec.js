@@ -16,6 +16,9 @@ test('localhost locator', async ({ page }) => {
   await locator.click();
 
   await page.getByTestId('directions').click();
+  await page.getByText('Details').click();
+  await page.locator('x-details', { hasText: 'Details' }).click();
+  await expect(page.locator('x-details')).toContainText('Details');
   /*
   await page.locator('css=button').click();
   await page.locator('xpath=//button').click();
