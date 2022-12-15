@@ -21,6 +21,11 @@ get '/' do
   erb :index
 end
 
+get '/pick' do
+  # This renders views/pick.erb.
+  erb :pick
+end
+
 get '/selector' do
   # This renders views/selector.erb.
   erb :selector
