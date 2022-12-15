@@ -41,3 +41,8 @@ npx playwright test --debug
 ```
 npx playwright test locator
 ```
+
+获取图片
+```
+wget https://playwright.dev/img/logos/Browsers.png
+```

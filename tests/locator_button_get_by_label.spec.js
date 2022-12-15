@@ -21,6 +21,11 @@ test('localhost locator', async ({ page }) => {
     .getByPlaceholder("name@example.com")
     .fill("playwright@microsoft.com");
   await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
+  // 设置精确匹配：
+  await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
+  // 与正则表达式匹配：
+  await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
+  await page.getByAltText('playwright logo').click();
   /*
   const locator = page
     .frameLocator('#my-frame')
