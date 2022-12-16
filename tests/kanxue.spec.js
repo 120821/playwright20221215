@@ -6,21 +6,27 @@ test.only('localhost locator', async ({ context}) => {
   const html = await page.content();
   console.log(await page.title());
   console.log(await page.url());
-  //console.log("====== html")
-  //console.log(html);
-  await page.waitForTimeout(5000);
-  page.locator('text=加载更多').first().click()
-  console.log(await page.title());
-  console.log(await page.url());
-  page.locator('text=加载更多').first().click()
-  console.log('=== div content')
-  const div = page.locator('div .tab-content').textContent();
-  //await page.locator('article:has(div.promo)').textContent();
-  console.log(await page.title());
-  console.log(await page.url());
   console.log("====== html")
-  console.log(div)
-  //console.log(await page.content());
-  await page.waitForTimeout(5000);
+  console.log(html);
+
+  for(var i = 0; i<5; i++){
+    console.log(i)
+    await page.waitForTimeout(5000);
+    page.locator('text=加载更多').first().click()
+    console.log(await page.title());
+    console.log(await page.url());
+    // 打印的数据不是需要的div数据
+    // 是这样的
+    // Promise { <pending> }
+    // 先注释了
+    //const div = page.locator('div .tab-content').textContent();
+    //console.log('=== div content')
+    //console.log(div)
+    //
+    //console.log(await page.content());
+    await page.waitForTimeout(5000);
+  }
+
+
 });
 
