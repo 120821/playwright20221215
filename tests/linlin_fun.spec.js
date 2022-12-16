@@ -2,31 +2,28 @@ const { test, expect } = require('@playwright/test');
 
 test.only('localhost locator', async ({ context}) => {
   const page = await context.newPage();
-  await page.goto("https://www.linlin.fun/blogs")
+  // 访问列表页面
+  await page.goto("http://www.linlin.fun")
   const html = await page.content();
   console.log(await page.title());
   console.log(await page.url());
-  console.log("====== html")
-  console.log(html);
+  //  console.log("====== html")
+  // console.log(html);
 
-  for(var i = 0; i<5; i++){
+  await page.waitForTimeout(5000);
+
+
+  // 访问前10条博客
+  for(var i = 0; i < 10; i++){
     console.log(i)
-    await page.waitForTimeout(5000);
-    page.locator('text=加载更多').first().click()
-    console.log(await page.title());
-    console.log(await page.url());
-    // 打印的数据不是需要的div数据
-    // 是这样的
-    // Promise { <pending> }
-    // 先注释了
-    //const div = page.locator('div .tab-content').textContent();
-    //console.log('=== div content')
-    //console.log(div)
-    //
-    //console.log(await page.content());
+    const [newPage] = await Promise.all([
+      context.waitForEvent('page'),
+      // This action triggers the new tab
+      page.locator('text=2022').nth(i).click()
+    ])
+    console.log(await newPage.url());
     await page.waitForTimeout(5000);
   }
-
 
 });
 
