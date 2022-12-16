@@ -5,13 +5,13 @@ test.only('verify multiple tabs', async({context})=>{
   await page.goto("https://www.programsbuzz.com/")
 
   const [newPage] = await Promise.all([
-      context.waitForEvent('page'),
-      // This action triggers the new tab
-      page.locator('text=By iVagus Services Pvt. Ltd.').click()
-    ])
+    context.waitForEvent('page'),
+    // This action triggers the new tab
+    page.locator('text=By iVagus Services Pvt. Ltd.').click()
+  ])
 
-    // title of new tab page
-    console.log(await newPage.title());
-    // title of existing page
-    console.log(await page.title());
+  // title of new tab page
+  console.log(await newPage.title());
+  // title of existing page
+  console.log(await page.title());
 })

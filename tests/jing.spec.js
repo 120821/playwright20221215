@@ -1,26 +1,30 @@
 const { test, expect } = require('@playwright/test');
 
-test('localhost locator', async ({ page }) => {
+test.only('verify multiple tabs', async({context})=>{
+  const page = await context.newPage();
   await page.goto('https://www.jd.com/?d')
-  //await page.goto('https://item.jd.com/13119711.html')
-  // wait for 1 second
-  console.log(page.url());
   await page.waitForTimeout(5000);
-  await page.getByText('史记少年版（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').first().click();
-  console.log(page.url());
-  context = await browser.new_context()
-  console.log(context)
+  const [newPage] = await Promise.all([
+    context.waitForEvent('page'),
+    // This action triggers the new tab
+    //page.getByText('（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
+    //page.waitForTimeout(5000);
+    page.locator('text=史记少年版').first().click()
+  ])
+  const [showPage] = await Promise.all([
+    context.waitForEvent('page'),
+    // This action triggers the new tab
+    //page.getByText('（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
+    //page.waitForTimeout(5000);
+    page.locator('text=史记少年版').first().click()
+  ])
 
-  await page.waitForTimeout(5000);
-  const book = await page.getByRole('listitem').nth(1);
-  await page.getByText('史记少年版（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
-  await page.waitForTimeout(5000);
-  await page.getByText('史记少年版（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
-  await page.getByText('史记少年版（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
-  await page.getByText('史记少年版（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
-  await page.waitForTimeout(5000);
-  await page.waitForTimeout(5000);
-  await page.waitForTimeout(5000);
-  //const banana = await page.getByRole('listitem').nth(1);
-
-});
+  console.log(await showPage.title());
+  console.log(await showPage.url());
+  // title of new tab page
+  console.log(await newPage.title());
+  console.log(await newPage.url());
+  // title of existing page
+  console.log(await page.title());
+  console.log(await page.url());
+})
