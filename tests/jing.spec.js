@@ -9,14 +9,16 @@ test.only('verify multiple tabs', async({context})=>{
     // This action triggers the new tab
     //page.getByText('（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
     //page.waitForTimeout(5000);
-    page.locator('text=史记少年版').first().click()
+    page.locator('text=酸牛奶').first().click()
+    //page.locator('text=史记少年版').first().click()
   ])
   const [showPage] = await Promise.all([
     context.waitForEvent('page'),
     // This action triggers the new tab
     //page.getByText('（全8册，少年读史记，国学早启蒙。100余位历史人物传记，图文并茂，提高作文水平）').last().click();
     //page.waitForTimeout(5000);
-    page.locator('text=史记少年版').first().click()
+    page.locator('text=酸牛奶').first().click()
+    //page.locator('text=史记少年版').first().click()
   ])
 
   console.log(await showPage.title());
